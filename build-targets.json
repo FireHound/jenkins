@@ -48,5 +48,11 @@
                 "device": "potter",
                 "build_type": "userdebug",
                 "dow": "6"
+        },
+        {
+                "device": "tissot",
+                "build_type": "userdebug",
+                "dow": "6"
         }
+
 ]
