@@ -10,7 +10,7 @@ node {
 		rm -rf .repo/local_manifests
 	        repo forall -c "git reset --hard"
 	        repo forall -c "git clean -f -d"
-	        repo sync -d -c -j32 --force-sync
+	        repo sync -d -c -j32 --force-sync --no-tags --no-clone-bundle
 		'''
 	}
 	stage('Clean') {
@@ -24,6 +24,7 @@ node {
 		sh '''#!/bin/bash +e
 		cd '''+BUILD_TREE+'''
 		. build/envsetup.sh
+		ccache -M 75G
 		export USE_CCACHE=1
 		export CCACHE_COMPRESS=1
 		export FH_RELEASE=true
