@@ -1,7 +1,7 @@
 def basejobname = "fh_" + DEVICE + '-' + BUILD_TYPE
 def BUILD_TREE = "/var/lib/jenkins/workspace/builder"
 
-node("master") {
+node {
 	currentBuild.displayName = basejobname
 
 	stage('Sync') {
