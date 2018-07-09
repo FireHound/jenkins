@@ -5,7 +5,7 @@ String getDevices() { ['curl', '-s', 'https://raw.githubusercontent.com/FireHoun
 
 def jsonParse(def json) { new groovy.json.JsonSlurperClassic().parseText(json) }
 
-node("master"){
+node {
   try {
     def json = jsonParse(getDevices())
 	def dow = getDay()
