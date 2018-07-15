@@ -8,7 +8,9 @@ node {
 		sh '''#!/bin/bash
 		cd '''+BUILD_TREE+'''
 		rm -rf .repo/local_manifests
-	        repo forall -c "git reset --hard"
+		echo "Resetting current working tree...."
+	        repo forall -c "git reset --hard" > /dev/null
+		echo "Reset complete!"
 	        repo forall -c "git clean -f -d"
 	        repo sync -d -c --force-sync --no-tags --no-clone-bundle
 		'''
@@ -38,7 +40,8 @@ node {
 		cd '''+BUILD_TREE+'''
 		gdrive upload '''+BUILD_TREE+'''/out/target/product/*/FireHound-*.zip -p 1UugE3Eb43arYnfn0muFvIkkDkbvj3NAr
 		echo "Uploading $DEVICE build to gdrive"
-		curl -X GET https://api.firehound.org/nodejs/api/gdrive-files
+		curl -s -X GET https://api.firehound.org/nodejs/api/gdrive-files > /dev/null
+		echo "Synced $DEVICE build successfully!"
 		'''
 	}
 }
