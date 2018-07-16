@@ -20,11 +20,6 @@
                 "dow": "3"
         },
         {
-                "device": "whyred",
-                "build_type": "userdebug",
-                "dow": "3"
-        },
-        {
                 "device": "sanders",
                 "build_type": "userdebug",
                 "dow": "4"
