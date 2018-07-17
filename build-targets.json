@@ -5,17 +5,17 @@
                 "dow": "1"
         },
 	{
-                "device": "mido",
-                "build_type": "userdebug",
-                "dow": "2"
-        },
-	{
                 "device": "cheeseburger",
                 "build_type": "userdebug",
                 "dow": "2"
         },
 	{
                 "device": "kenzo",
+                "build_type": "userdebug",
+                "dow": "3"
+        },
+	{
+                "device": "mido",
                 "build_type": "userdebug",
                 "dow": "3"
         },
