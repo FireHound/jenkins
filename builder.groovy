@@ -1,4 +1,4 @@
-def basejobname = "fh_" + DEVICE + '-' + BUILD_TYPE
+def basejobname = DEVICE + '-' + BUILD_TYPE
 def BUILD_TREE = "/var/lib/jenkins/workspace/builder"
 
 node {
@@ -30,6 +30,8 @@ node {
 		export USE_CCACHE=1
 		export CCACHE_COMPRESS=1
 		export FH_RELEASE=true
+		export KBUILD_BUILD_USER=Jenkins
+		export KBUILD_BUILD_HOST=FireHound
 		lunch fh_$DEVICE-$BUILD_TYPE
 		mka bacon
 		'''
@@ -38,8 +40,8 @@ node {
 		sh '''#!/bin/bash
 		set -e
 		cd '''+BUILD_TREE+'''
+		echo "Deploying artifacts..."
 		gdrive upload '''+BUILD_TREE+'''/out/target/product/*/FireHound-*.zip -p 1UugE3Eb43arYnfn0muFvIkkDkbvj3NAr
-		echo "Uploading $DEVICE build to gdrive"
 		curl -s -X GET https://api.firehound.org/nodejs/api/gdrive-files > /dev/null
 		echo "Synced $DEVICE build successfully!"
 		'''
