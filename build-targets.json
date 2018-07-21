@@ -1,5 +1,10 @@
 [
 	{
+		"device": "athene",
+                "build_type": "userdebug",
+                "dow": "1"
+	},
+	{
                 "device": "X00TD",
                 "build_type": "userdebug",
                 "dow": "1"
