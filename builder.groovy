@@ -29,7 +29,7 @@ node {
 		ccache -M 75G
 		export USE_CCACHE=1
 		export CCACHE_COMPRESS=1
-		export FH_RELEASE=true
+		export FH_WEEKLY=true
 		lunch fh_$DEVICE-$BUILD_TYPE
 		mka bacon
 		'''
